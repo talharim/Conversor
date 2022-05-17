@@ -1,0 +1,415 @@
+//Desenvolvido por Pietro Martins
+using System;
+
+namespace Conversor_de_medidas
+{
+    class Program
+    {
+        static void Main (string[] args)
+        {
+            int opcao, opcao_menu_metricas, opcao_menu_volumetricas, opcao_menu_euro, opcao_menu_peso;
+            double valor, dolar, euro;
+            char opcao_medidas, opcao_moedas, continuar;
+//Menu pricipal da apliação (1)
+            menu_principal:
+
+            Console.WriteLine("Conversor de medidas\n\nSelecione uma opção: \n\n1 - Conversor de medidas.\n2 - Conversor de moedas.\n3 - Conversor de peso.\n4 - Sair.");
+            opcao = int.Parse(Console.ReadLine());
+
+            switch (opcao)
+            {
+                case 1:
+                    goto conversor_de_medidas;
+                case 2:
+                    goto conversor_de_moedas;
+                case 3:
+                    goto conversor_de_peso;
+                case 4:
+                    goto sair;
+            }
+            //validação de entradas
+            if (opcao != 1 && opcao !=2 && opcao != 3 && opcao !=4)
+            {
+                Console.WriteLine("A opção inserida está inválida. Tente novamente.");
+                goto menu_principal;
+            }
+// Conversor de medidas. 1ª opção do menu principal (1.1)
+        conversor_de_medidas:
+            Console.WriteLine("\nConversor de medidas!! \nSelecione uma opção:\n\nA - Metricas \nB - Volumétricas \nC - Voltar ao menu principal.");
+            opcao_medidas = char.Parse(Console.ReadLine());    
+
+            switch (opcao_medidas)
+            {
+                case 'a':
+                    goto menu_metricas;
+                case 'A':
+                    goto menu_metricas;
+                case 'b':
+                    goto menu_volumetricas;
+                case 'B':
+                    goto menu_volumetricas;
+                case 'c':
+                    goto menu_principal;
+                case 'C':
+                    goto menu_principal;
+            }
+            //validação de entradas
+            if (opcao != 'a' && opcao != 'A' && opcao != 'b' && opcao != 'B' && opcao != 'c' && opcao != 'C')
+            {
+                Console.WriteLine("A opção inserida está inválida. Tente novamente.");
+                goto conversor_de_medidas;
+            }
+        //ª1 opção do conversor de medidas. (1.1.1)
+        menu_metricas:
+            Console.WriteLine("\nConversor de medidas métricas!!\nSelecione uma opção: \n1 - Metro para centímetro.\n2 - Centímetro para metro.\n3 - Voltar ao menu anterior.");
+            opcao_menu_metricas = int.Parse(Console.ReadLine());
+
+            switch (opcao_menu_metricas)
+            {
+                case 1:
+                    Console.WriteLine("\nConversor de metro para centímetro!\nInforme o valor: ");
+                    valor = double.Parse(Console.ReadLine());
+                    valor = valor * 100;
+                    Console.WriteLine($"\nO valor da conversão é: {valor} centimetros.\nDeseja fazer outra conversão?(s/n) ");
+                    continuar = char.Parse(Console.ReadLine());
+                    if(continuar =='s' || continuar == 'S')
+                    {
+                        goto menu_metricas;
+                    }
+                    else if (continuar == 'n' || continuar == 'N') 
+                    {
+                        goto sair;
+                    }
+                    break;
+                case 2:
+                    Console.WriteLine("\nConversor de centímetro para metro!\nInforme o valor: ");
+                    valor = double.Parse(Console.ReadLine());
+                    valor = valor / 100;
+                    Console.WriteLine($"\nO valor da conversão é: {valor} metros.\nDeseja fazer outra conversão?(s/n) ");
+                    continuar = char.Parse(Console.ReadLine());
+                    if (continuar == 's' || continuar == 'S')
+                    {
+                        goto menu_metricas;
+                    }
+                    else if (continuar == 'n' || continuar == 'N')
+                    {
+                        goto sair;
+                    }
+                    break;
+                case 3:
+                    goto conversor_de_medidas;                    
+            }
+            //validação de entradas
+            if (opcao != 1 && opcao != 2 && opcao != 3)
+            {
+                Console.WriteLine("A opção inserida está inválida. Tente novamente.");
+                goto menu_metricas;
+            }
+        //2ª opção do conversor de medidas(1.1.2)
+        menu_volumetricas:
+            Console.WriteLine("\nConversor de medidas volumétricas!!\nSelecione uma opção: \n1 - Litro para mililitro.\n2 - Mililitro para litro.\n3 - Voltar ao menu anterior.");
+            opcao_menu_volumetricas = int.Parse(Console.ReadLine());
+
+            switch (opcao_menu_volumetricas)
+            {
+                case 1:
+                    Console.WriteLine("\nConversor de litro para mililitro!\nInforme o valor: ");
+                    valor = double.Parse(Console.ReadLine());
+                    valor = valor * 1000;
+                    Console.WriteLine($"\nO valor da conversão é: {valor} mililitros.\nDeseja fazer outra conversão?(s/n) ");
+                    continuar = char.Parse(Console.ReadLine());
+                    if (continuar == 's' || continuar == 'S')
+                    {
+                        goto menu_volumetricas;
+                    }
+                    else if (continuar == 'n' || continuar == 'N')
+                    {
+                        goto sair;
+                    }
+                    break;
+                case 2:
+                    Console.WriteLine("\nConversor de mililitro para litro!\nInforme o valor: ");
+                    valor = double.Parse(Console.ReadLine());
+                    valor = valor / 1000;
+                    Console.WriteLine($"\nO valor da conversão é: {valor} litros.\nDeseja fazer outra conversão?(s/n) ");
+                    continuar = char.Parse(Console.ReadLine());
+                    if (continuar == 's' || continuar == 'S')
+                    {
+                        goto menu_volumetricas;
+                    }
+                    else if (continuar == 'n' || continuar == 'N')
+                    {
+                        goto sair;
+                    }
+                    break;
+                case 3:
+                    goto conversor_de_medidas;                    
+            }
+            //validação de entradas
+            if (opcao != 1 && opcao != 2 && opcao != 3)
+            {
+                Console.WriteLine("A opção inserida está inválida. Tente novamente.");
+                goto menu_volumetricas;
+            }
+        //2ª opção do menu principal (1.2)
+        conversor_de_moedas:
+            Console.WriteLine("\nConversor de moedas!! \nSelecione uma opção: \n\nA - Dólar. \nB - Euro. \nC - Voltar ao menu principal. ");
+            opcao_moedas = char.Parse(Console.ReadLine());
+
+            switch (opcao_moedas)
+            {
+                case 'a':
+                    goto menu_dolar;                   
+                case 'A':
+                    goto menu_dolar;                    
+                case 'b':
+                    goto menu_euro;
+                case 'B':
+                    goto menu_euro;
+                case 'c':
+                    goto menu_principal;                    
+                case 'C':
+                    goto menu_principal;                    
+            }
+            //validação de entradas
+            if (opcao != 'a' && opcao != 'A' && opcao != 'b' && opcao != 'B' && opcao != 'c' && opcao != 'C')
+            {
+                Console.WriteLine("A opção inserida está inválida. Tente novamente.");
+                goto conversor_de_moedas;
+            }
+        //1ª opção do conversor de moedas (1.2.1)
+        menu_dolar:
+            Console.WriteLine("\nConversor de Dólar!!\nSelecione uma opção: \n1 - Dólar para Real.\n2 - Real para Dólar.\n3 - Voltar ao menu anterior.");
+            opcao = int.Parse(Console.ReadLine());
+
+            switch (opcao)
+            {
+                case 1:
+                    Console.WriteLine("\nConversor de Dólar para Real!\nA cotação do dólar adotada foi R$ 5,13.\nDeseja usar outro valor?(s/n) ");
+                    continuar = char.Parse(Console.ReadLine());
+                    if (continuar == 's' || continuar == 'S')
+                    {
+                        Console.WriteLine("Insira a cotação do Dólar: ");
+                        dolar = double.Parse(Console.ReadLine());
+                        Console.WriteLine("Insira o valor a ser convertido: ");
+                        valor = double.Parse(Console.ReadLine());
+                        valor = valor * dolar;
+                        Console.WriteLine($"\nO valor da conversão é: {Math.Round(valor, 2)} reais.\nDeseja fazer outra conversão?(s/n) ");
+                        continuar = char.Parse(Console.ReadLine());
+                        if (continuar == 's' || continuar == 'S')
+                        {
+                            goto menu_dolar;
+                        }
+                        else if (continuar == 'n' || continuar == 'N')
+                        {
+                            goto sair;
+                        }
+                    }
+                    else if (continuar == 'n' || continuar == 'N')
+                    {
+                        Console.WriteLine("Digite o valor a ser convertido: ");
+                        valor = double.Parse(Console.ReadLine());
+                        valor = valor * 5.13;
+                        Console.WriteLine($"\nO valor da conversão é: {Math.Round(valor, 2)} reais.\nDeseja fazer outra conversão?(s/n) ");
+                        continuar = char.Parse(Console.ReadLine());
+                        if (continuar == 's' || continuar == 'S')
+                        {
+                            goto menu_dolar;
+                        }
+                        else if (continuar == 'n' || continuar == 'N')
+                        {
+                            goto sair;
+                        }
+                    }                          
+                    break;
+                case 2:
+                    Console.WriteLine("\nConversor de Real para Dólar!\nA cotação do dólar adotada foi R$ 5,13.\nDeseja usar outro valor?(s/n) ");
+                    continuar = char.Parse(Console.ReadLine());
+                    if (continuar == 's' || continuar == 'S')
+                    {
+                        Console.WriteLine("Insira a cotação do Dólar: ");
+                        dolar = double.Parse(Console.ReadLine());
+                        Console.WriteLine("Insira o valor a ser convertido: ");
+                        valor = double.Parse(Console.ReadLine());
+                        valor = valor / dolar;
+                        Console.WriteLine($"\nO valor da conversão é: {Math.Round(valor, 2)} dólares.\nDeseja fazer outra conversão?(s/n) ");
+                        continuar = char.Parse(Console.ReadLine());
+                        if (continuar == 's' || continuar == 'S')
+                        {
+                            goto menu_dolar;
+                        }
+                        else if (continuar == 'n' || continuar == 'N')
+                        {
+                            goto sair;
+                        }
+                    }
+                    else if (continuar == 'n' || continuar == 'N')
+                    {
+                        Console.WriteLine("Digite o valor a ser convertido: ");
+                        valor = double.Parse(Console.ReadLine());
+                        valor = valor / 5.13;
+                        Console.WriteLine($"\nO valor da conversão é: {Math.Round(valor, 2)} dólares.\nDeseja fazer outra conversão?(s/n) ");
+                        continuar = char.Parse(Console.ReadLine());
+                        if (continuar == 's' || continuar == 'S')
+                        {
+                            goto menu_dolar;
+                        }
+                        else if (continuar == 'n' || continuar == 'N')
+                        {
+                            goto sair;
+                        }
+                    }
+                    break;
+                case 3:
+                    goto conversor_de_moedas;
+            }
+            //validação de entradas
+            if (opcao != 1 && opcao != 2 && opcao != 3)
+            {
+                Console.WriteLine("A opção inserida está inválida. Tente novamente.");
+                goto menu_dolar;
+            }
+        //2ª opção do conversor de moedas (1.2.2)
+        menu_euro:
+            Console.WriteLine("\nConversor de Euro!!\nSelecione uma opção: \n1 - Euro para Real.\n2 - Real para Euro.\n3 - Voltar ao menu anterior.");
+            opcao_menu_euro = int.Parse(Console.ReadLine());
+
+            switch (opcao_menu_euro)
+            {
+                case 1:
+                    Console.WriteLine("\nConversor de Euro para Real!\nA cotação do Euro adotada foi R$ 5,33.\nDeseja usar outro valor?(s/n) ");
+                    continuar = char.Parse(Console.ReadLine());
+                    if (continuar == 's' || continuar == 'S')
+                    {
+                        Console.WriteLine("Insira a cotação do Euro: ");
+                        euro = double.Parse(Console.ReadLine());
+                        Console.WriteLine("Insira o valor a ser convertido: ");
+                        valor = double.Parse(Console.ReadLine());
+                        valor = valor * euro;
+                        Console.WriteLine($"\nO valor da conversão é: {Math.Round(valor, 2)} reais.\nDeseja fazer outra conversão?(s/n) ");
+                        continuar = char.Parse(Console.ReadLine());
+                        if (continuar == 's' || continuar == 'S')
+                        {
+                            goto menu_euro;
+                        }
+                        else if (continuar == 'n' || continuar == 'N')
+                        {
+                            goto sair;
+                        }
+                    }
+                    else if (continuar == 'n' || continuar == 'N')
+                    {
+                        Console.WriteLine("Digite o valor a ser convertido: ");
+                        valor = double.Parse(Console.ReadLine());
+                        valor = valor * 5.33;
+                        Console.WriteLine($"\nO valor da conversão é: {Math.Round(valor, 2)} reais.\nDeseja fazer outra conversão?(s/n) ");
+                        continuar = char.Parse(Console.ReadLine());
+                        if (continuar == 's' || continuar == 'S')
+                        {
+                            goto menu_euro;
+                        }
+                        else if (continuar == 'n' || continuar == 'N')
+                        {
+                            goto sair;
+                        }
+                    }
+                    break;
+                case 2:
+                    Console.WriteLine("\nConversor de Real para Euro!\nA cotação do Euro adotada foi R$ 5,33.\nDeseja usar outro valor?(s/n) ");
+                    continuar = char.Parse(Console.ReadLine());
+                    if (continuar == 's' || continuar == 'S')
+                    {
+                        Console.WriteLine("Insira a cotação do Euro: ");
+                        euro = double.Parse(Console.ReadLine());
+                        Console.WriteLine("Insira o valor a ser convertido: ");
+                        valor = double.Parse(Console.ReadLine());
+                        valor = valor / euro;
+                        Console.WriteLine($"\nO valor da conversão é: {Math.Round(valor, 2)} euros.\nDeseja fazer outra conversão?(s/n) ");
+                        continuar = char.Parse(Console.ReadLine());
+                        if (continuar == 's' || continuar == 'S')
+                        {
+                            goto menu_euro;
+                        }
+                        else if (continuar == 'n' || continuar == 'N')
+                        {
+                            goto sair;
+                        }
+                    }
+                    else if (continuar == 'n' || continuar == 'N')
+                    {
+                        Console.WriteLine("Digite o valor a ser convertido: ");
+                        valor = double.Parse(Console.ReadLine());
+                        valor = valor / 5.33;
+                        Console.WriteLine($"\nO valor da conversão é: {Math.Round(valor, 2)} euros.\nDeseja fazer outra conversão?(s/n) ");
+                        continuar = char.Parse(Console.ReadLine());
+                        if (continuar == 's' || continuar == 'S')
+                        {
+                            goto menu_euro;
+                        }
+                        else if (continuar == 'n' || continuar == 'N')
+                        {
+                            goto sair;
+                        }
+                    }
+                    break;
+                case 3:
+                    goto conversor_de_moedas;
+            }
+            //validação de entradas
+            if (opcao_menu_euro != 1 && opcao_menu_euro != 2 && opcao != 3)
+            {
+                Console.WriteLine("A opção inserida está inválida. Tente novamente.");
+                goto menu_euro;
+            }
+        //Conversor de peso (1.3)
+        conversor_de_peso:
+            Console.WriteLine("\nConversor de peso!! \nSelecione uma opção: \n\n1 - Quilo para grama. \n2 - Grama para quilo. \n3 - Voltar ao menu anterior. ");
+            opcao = int.Parse(Console.ReadLine());
+
+            switch (opcao)
+            {
+                case 1:
+                    Console.WriteLine("\nConversor de Quilo para Grama!\nInforme o valor: ");
+                    valor = double.Parse(Console.ReadLine());
+                    valor = valor * 1000;
+                    Console.WriteLine($"\nO valor da conversão é: {Math.Round(valor, 2)} gramas\nDeseja fazer outra conversão?(s/n) ");
+                    continuar = char.Parse(Console.ReadLine());
+                    if (continuar == 's' || continuar == 'S')
+                    {
+                        goto conversor_de_peso;
+                    }
+                    else if (continuar == 'n' || continuar == 'N')
+                    {
+                        goto sair;
+                    }
+                    break;
+                case 2:
+                    Console.WriteLine("\nConversor de Grama para Quilo!\nInforme o valor: ");
+                    valor = double.Parse(Console.ReadLine());
+                    valor = valor / 1000;
+                    Console.WriteLine($"\nO valor da conversão é: {Math.Round(valor, 2)} quilos\nDeseja fazer outra conversão?(s/n) ");
+                    continuar = char.Parse(Console.ReadLine());
+                    if (continuar == 's' || continuar == 'S')
+                    {
+                        goto conversor_de_peso;
+                    }
+                    else if (continuar == 'n' || continuar == 'N')
+                    {
+                        goto sair;
+                    }
+                    break;                   
+                case 3:
+                    goto menu_principal;
+            }
+            //validação de entradas
+            if (opcao != 1 && opcao != 2 && opcao != 3)
+            {
+                Console.WriteLine("A opção inserida está inválida. Tente novamente.");
+                goto conversor_de_peso;
+            }
+        //Sair (1.4)
+        sair:
+            Environment.Exit(0);
+        }
+    }
+}
