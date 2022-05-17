@@ -1,0 +1,35 @@
+O conversor deveria possuir uma certa espécie de menus e opções. Sendo eles:
+
+* O menu pricipal;
+* O menu secundário;
+* O menu terciário;
+
+Em um lista seria basicamente assim:
+
+Conversor:                                  *menu principal*
+    * Conversor de medidas                  *menu secundário*
+        * Métricas;                         *menu terciário*
+            * Metro para centímetro;            *1ª opção*
+            * Centímetro para metro;            *2ª opção*
+            * Voltar ao menu anterior;          *3ª opção*
+        * Volumétricas;                     *menu terciário*
+            * Litro para mililitro;             *1ª opção*
+            * Mililitro para litro;             *2ª opção*
+            * Voltar ao menu anterior;          *3ª opção*
+        * Voltar ao menu principal;         *menu terciário* (este menu terciário não possui opções pois sua única função é retornar ao menu principal)
+    * Conversor de moedas                   *menu secundário*
+        * Dólar;                            *menu terciário*
+            * Dólar para Real;
+            * Real para Dólar;
+            * Voltar ao menu anterior;
+        * Euro;                             *menu terciário*
+            * Euro para Real;
+            * Real para Euro;
+            * Voltar ao menu anterior; 
+        * Voltar ao menu principal;         *menu terciário*
+    * Conversor de peso;                    *menu secundário*
+        * Quilo para grama;                     *1ª opção*
+        * Grama para quilo;                     *2ª opção*
+        * Voltar ao menu anterior               *3ª opção* (o menu anterior desta opção é o menu principal)
+   * Sair                                   *menu secundário* 
+            
